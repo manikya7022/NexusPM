@@ -1,0 +1,180 @@
+/* Nexus PM - App Specific Styles */
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom selection */
+::selection {
+  background: rgba(0, 240, 255, 0.3);
+  color: #F4F7FF;
+}
+
+/* Focus styles */
+*:focus-visible {
+  outline: 2px solid rgba(0, 240, 255, 0.5);
+  outline-offset: 2px;
+}
+
+/* Glass card hover effect */
+.glass-card {
+  transition: all 0.3s ease;
+}
+
+.glass-card:hover {
+  border-color: rgba(0, 240, 255, 0.4);
+  box-shadow: 0 0 40px rgba(0, 240, 255, 0.12);
+}
+
+/* Button hover lift */
+.btn-primary,
+.btn-secondary {
+  transition: all 0.2s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-1px);
+}
+
+.btn-primary:active {
+  transform: scale(0.98);
+}
+
+/* Status dot pulse */
+.status-connected {
+  animation: statusPulse 2s ease-in-out infinite;
+}
+
+@keyframes statusPulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(0, 255, 170, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 4px rgba(0, 255, 170, 0);
+  }
+}
+
+/* Chart tooltip customization */
+.recharts-tooltip-wrapper {
+  outline: none !important;
+}
+
+/* Scrollbar styling */
+.scrollbar-thin {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 240, 255, 0.3) transparent;
+}
+
+.scrollbar-thin::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background: rgba(0, 240, 255, 0.2);
+  border-radius: 3px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 240, 255, 0.4);
+}
+
+/* Line clamp utility */
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Neon border animation */
+@keyframes borderGlow {
+  0%, 100% {
+    border-color: rgba(0, 240, 255, 0.28);
+    box-shadow: 0 0 20px rgba(0, 240, 255, 0.08);
+  }
+  50% {
+    border-color: rgba(0, 240, 255, 0.5);
+    box-shadow: 0 0 40px rgba(0, 240, 255, 0.15);
+  }
+}
+
+.neon-border-glow {
+  animation: borderGlow 3s ease-in-out infinite;
+}
+
+/* Grid pattern background */
+.grid-bg {
+  background-image: 
+    linear-gradient(rgba(0, 240, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 240, 255, 0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* Loading shimmer */
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.shimmer {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.05) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .glass-card-strong {
+    border-radius: 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .glass-card,
+  .glass-card-strong {
+    border-radius: 12px;
+    padding: 1rem;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  .neon-border-glow,
+  .status-connected {
+    animation: none;
+  }
+}
+
+/* Print styles */
+@media print {
+  .glass-card,
+  .glass-card-strong,
+  .glass-panel {
+    background: white !important;
+    border: 1px solid #ccc !important;
+    box-shadow: none !important;
+  }
+}
